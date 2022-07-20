@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>Sistem Pakar Diagnosis Diabetes Melitus.</title>
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <style>
+        *{
+            text-decoration: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body
+        {
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .wrapper
+        {
+            width: 1100px;
+            margin: auto;
+            position: relative;
+        }
+
+        .logo a
+        {
+            font-size: 50px;
+            font-weight: 800;
+            float: left;
+            font-family: courier;
+            color: #1B2430;
+        }
+
+        .menu
+        {
+            float: right;
+        }
+
+        nav
+        {
+            width: 100%;
+            margin: auto;
+            display: flex;
+            line-height: 80px;
+            position: sticky;
+            position: -webkit-sticky;
+            top: 0;
+            background: #FFFFFF;
+            z-index: 1;
+            border-bottom: 1px solid #774360;
+        }
+
+        nav ul
+        {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        nav ul li
+        {
+            float: left;
+        }
+
+        nav ul li a
+        {
+            color: black;
+            font-weight: bold;
+            text-align: justify;
+            padding: 0px 16px 0px 16px;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover
+        {
+            text-decoration: underline;
+        }
+
+        section
+        {
+            margin: auto;
+            display: flex;
+            margin-bottom: 50px;
+        }
+
+        .kolom
+        {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .kolom .deskripsi
+        {
+            font-size: 20px;
+            font-weight: bold;
+            font-family: 'Open Sans', sans-serif;
+            color: #1B2430;
+        }
+
+        h2
+        {
+            font-family: 'comic sans-ms';
+            font-weight: 800;
+            font-size: 45px;
+            margin-bottom: 20px;
+            color: #1B2430;
+            width: 100%;
+            line-height: 50px;
+        }
+
+        a.tbl-biru
+        {
+            background: #4C3575;
+            border-radius: 20px;
+            margin-top: 20px;
+            padding: 15px 20px 15px 20px;
+            color: #FFFFFF;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        a.tbl-biru:hover
+        {
+            background: #816797;
+            text-decoration: none;
+        }
+
+        a.tbl-pink
+        {
+            background: #4C3575;
+            border-radius: 20px;
+            margin-top: 20px;
+            padding: 15px 20px 15px 20px;
+            color: #FFFFFF;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        a.tbl-pink:hover
+        {
+            background: #816797;
+            text-decoration: none;
+        }
+
+        p
+        {
+            margin: 10px 0px 10px 0px;
+            padding: 10px 0px 10px 0px;
+        }
+
+        .tengah
+        {
+            text-align: center;
+            width: 100%;
+        }
+
+        .tutor-list
+        {
+            width: 100%;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .kartu-tutor
+        {
+            width: 20%;
+            margin: 0 auto;
+        }
+
+        .kartu-tutor img
+        {
+            width: 80%;
+            border-radius: 50%;
+        }
+
+        .kartu-tutor p
+        {
+            font-family: 'comic sans ms';
+            font-weight: 800;
+            font-size: 25px;
+            text-decoration: center;
+            color: #1B2430;
+        }
+
+        .partner-list
+        {
+            width: 100%;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .kartu-partner
+        {
+            width: 20%;
+            margin: 0 auto;
+        }
+
+        .kartu-partner img
+        {
+            width: 150px;
+            border-radius: 50%;
+        }
+
+        .footer
+        {
+            width: 100%;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+        }
+
+        .footer-section
+        {
+            width: 20%;
+            margin: 0 auto;
+        }
+
+        h3
+        {
+            font-family: 'Open Sans, sans-serif';
+            font-weight: 800;
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: #1B2430;
+            width: 100%;
+            line-height: 50px;
+        }
+
+        #copyright
+        {
+            text-align: center;
+            width: 100%;
+            padding: 50px 0px 50px 0px;
+            margin-top: 50px;
+            background: #ffffff;
+            padding: 50px 0px 50px 0px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="wrapper">
+            <div class="logo"><a href = ''>SISTEM PAKAR</a></div>
+            <div class="menu">
+                <ul>
+                    <li><a href = "#home">Home</a></li>
+                    <li><a href = "#tutorials">Tutorial</a></li>
+                    <li><a href = "#diagnose">Diagnose</a></li>
+                    <li><a href = "#partners">Partner</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class = "wrapper">
+        <section id = "home"><!--PENGATURAN HOME-->
+            <img src = "https://img.freepik.com/free-vector/cute-happy-blood-drop-with-glucose-measuring-device-character-flat-style-cartoon-illustration-icon-isolated-white-normal-risk-diabetes-blood-sugar-glucometer-level_92289-457.jpg?w=900"/>
+            <div class = "kolom">
+                <p class = "deskripsi">Sistem Pakar Diagnosis Diabetes Melitus</p>
+                <h2>Tetap Jaga Kesehatan!</h2>
+                <p>Menurut American Diabetes Association (ADA) tahun 2010, Diabetes melitus merupakan suatu kelompok penyakit metabolik dengan karakteristik hiperglikemia yang terjadi karena kelainan sekresi insulin, kerja insulin, atau kedua-duanya.<p>
+                <p><a href = "homeweb.html" class = "tbl-pink">Pelajari Lebih Lanjut</a></p>
+            </div>
+        </section>
+
+        <!--PENGATURAN TUTS-->
+        <section id = "tutorials">
+            <div class = "tengah">
+                <div class = "kolom">
+                    <h2>Tutorial Menggunakan Sistem Diagnosis</h2>
+                    <p>Berikut merupakan cara-cara yang dapat anda lakukan dalam menggunakan program sistem pakar ini</p>
+                    <img src="nama.png" alt="Tampilan_Awal" style="width:700px;height:350px;">
+                    <p>1. Tampilan Awal, Silakan Masukkan Nama Anda.</p>
+                    <img src="ktrnn.png" alt="Tampilan_Awal" style="width:700px;height:350px;">
+                    <p>2. Langkah Berikutnya Adalah Silakan Anda Inputkan Jawaban Dari Pertanyaan Dengan y/n.</p>
+                    <img src="gejala.png" alt="Tampilan_Awal" style="width:700px;height:350px;">
+                    <p>3. Kemudian Akan Menuju Tampilan Yang Berisi Gejala.</p>
+                    <img src="hasil.png" alt="Tampilan_Awal" style="width:700px;height:350px;">
+                    <p>4. Kemudian Sistem Akan Menampilkan Hasil.</p>
+                    <img src="done.png" alt="Tampilan_Awal" style="width:700px;height:350px;">
+                    <p>5. Langkah Terakhir. Pada Halaman Hasil, Scroll Keatas Dan Tekan Done.</p>
+                </div>
+            </div>
+        </section>
+
+        <!--PENGATURAN Diagnose-->
+        <section id = "diagnose">
+            <div class = "kolom">
+                <p class = "deskripsi"></p>
+                <h2>Diagnose</h2>
+                <p>Sistem ini memiliki tujuan untuk membantu para medis dalam mendiagnosis jenis penyakit dan membantu para penderita untuk dapat segera mengetahui jenis penyakit yang sedang dialami dan dapat segera ditangani</\p>
+                <p><a href = "http://127.0.0.1:5000" class = "tbl-biru">Diagnosis Sekarang!<a></p>
+            </div>
+            <img src = "https://img.freepik.com/free-vector/person-glucose-test-measuring-sugar-blood-concept_91248-899.jpg?w=740"/>
+        </section>
+
+        <!--PENGATURAN PARTNER-->
+        <section id = "partners">
+            <div class="tengah">
+                <div class="kolom">
+                    <p class = "deskripsi"></p>
+                    <h2>Partners</h2>
+                </div>
+
+                <div class = "partner-list">
+                    <div class = "kartu-partner">
+                        <img src = "https://akupintar.id/documents/20143/0/1617170422820-header_kampus-institut_teknologi_telkom_purwokerto_ittp.png/ec3b0410-6f9b-cdb7-ec49-7db8599b035a?version=1.0&t=1617170423025&imageThumbnail=1" />
+                        <p>KHUSNUL KHATIMAH (20102192)</p>
+                    </div>
+                    <div class = "kartu-partner">
+                        <img src = "https://akupintar.id/documents/20143/0/1617170422820-header_kampus-institut_teknologi_telkom_purwokerto_ittp.png/ec3b0410-6f9b-cdb7-ec49-7db8599b035a?version=1.0&t=1617170423025&imageThumbnail=1" />
+                        <p>TIARA HUMAIRA PUTRI (20102196)</p>
+                    </div>
+                    <div class = "kartu-partner">
+                        <img src = "https://akupintar.id/documents/20143/0/1617170422820-header_kampus-institut_teknologi_telkom_purwokerto_ittp.png/ec3b0410-6f9b-cdb7-ec49-7db8599b035a?version=1.0&t=1617170423025&imageThumbnail=1" />
+                        <p>MAHDA LAINA ARNUMUKTI (20102302)</p>
+                    </div>
+                    <div class = "kartu-partner">
+                        <img src = "https://akupintar.id/documents/20143/0/1617170422820-header_kampus-institut_teknologi_telkom_purwokerto_ittp.png/ec3b0410-6f9b-cdb7-ec49-7db8599b035a?version=1.0&t=1617170423025&imageThumbnail=1" />
+                        <p>EGIDYA ZALSABILA (20102307)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--PENGATURAN COPYRIGHT-->
+    <div id = "copyright">
+        <div class = "wrapper">
+            &copy; 2022. <b>Sistem Pakar</b> All Rights Reserved
+        </div>
+    </div>
+</body>
+</html>
