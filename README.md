@@ -1,4 +1,4 @@
-Website Sistem Pakar Diagnosis Penyakit Diabetes Melitu
+Website Sistem Pakar Diagnosis Penyakit Diabetes Melitus
 
 TIARA HUMAIRA PUTRI
 Framework: Flask
